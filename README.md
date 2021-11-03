@@ -9,8 +9,6 @@ $ npm install
 ```
 $ npm install
 $ npm run build
-$ npm run typeorm:win migration:generate -- -n InitialSchema
-$ npm run typeorm:win migration:create -- -n UbigeoPeru
 $ npm run start:dev
 ```
 
