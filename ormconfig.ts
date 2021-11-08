@@ -1,6 +1,6 @@
 module.exports = {
     type: 'mysql',
-    url: process.env.MYSQL_4TOMIK_PROJECT,
+    url: process.env.MYSQL_TOMIK_PROJECT,
     migrationsRun: true,
     logging: true,
     timezone: '+0',
