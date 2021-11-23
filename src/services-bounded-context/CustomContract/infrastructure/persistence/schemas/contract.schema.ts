@@ -1,12 +1,11 @@
-import { Money } from "src/common/domain/value-objects/money.value";
-import { LegalConsultation } from "src/services-bounded-context/LegalConsultation/domain/entities/legalConsultation.entity";
 import {EntitySchema} from "typeorm";
+import {CustomContract} from "../../../domain/entities/customContract.entity";
 
 
-export const legalConsultationSchema = new EntitySchema({
-    name: 'legalConsultation',
-    target: LegalConsultation,
-    tableName: 'Consultation',
+export const customContractSchema = new EntitySchema({
+    name: 'customContractSchema',
+    target: CustomContract,
+    tableName: 'Contract',
     columns: {
       id: {
         type: 'bigint',
@@ -14,8 +13,8 @@ export const legalConsultationSchema = new EntitySchema({
         generated: true,
         unsigned: true,
       },
-      document: {
-        name: 'document',
+      description: {
+        name: 'description',
         type: String,
         length: 10,
       },
@@ -27,14 +26,19 @@ export const legalConsultationSchema = new EntitySchema({
         name: 'customer_id',
         type: 'bigint',
       },
-      coment: {
-        name: 'coment',
+      start_date: {
+        name: 'start_date',
+        type: String,
+        length: 100,
+      },
+      end_date: {
+        name: 'end_date',
         type: String,
         length: 100,
       },
       cost: {
         name: 'cost',
-        type: 'varchar',
+        type: 'money',
         length: 10,
       },
     },
