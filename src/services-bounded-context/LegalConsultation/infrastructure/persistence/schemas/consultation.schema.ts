@@ -1,5 +1,6 @@
 import { Money } from "src/common/domain/value-objects/money.value";
-import { LegalConsultation } from "src/services-bounded-context/LegalConsultation/domain/entities/consultation.entity";
+import { LegalConsultation } from "src/services-bounded-context/LegalConsultation/domain/entities/legalConsultation.entity";
+import {EntitySchema} from "typeorm";
 
 
 export const legalConsultationSchema = new EntitySchema({
@@ -33,7 +34,7 @@ export const legalConsultationSchema = new EntitySchema({
       },
       cost: {
         name: 'cost',
-        type: Money,
+        type: 'varchar',
         length: 10,
       },
     },

@@ -3,6 +3,9 @@ import { RegisterlegalConsultationCommand } from "../../messaging/register-consu
 import { RegisterlegalConsultationRequestDto } from "../dtos/register-consultation-request.dto";
 import { RegisterlegalConsultationResponseDto } from "../dtos/register-consultation-response.dto";
 import { RegisterlegalConsultationValidator } from "../validators/register-consultation.validator";
+import {Injectable} from "@nestjs/common";
+import {CommandBus} from "@nestjs/cqrs";
+import {Result} from "typescript-result";
 
 
 @Injectable()

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6fb24e66-2055-4dfc-a390-14ffe266a535" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/common/infrastructure/persistence/typeorm/migrations/1637370271297-InitialSchema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/dtos/queries/get-subscriptions.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/handlers/queries/get-subscriptions.handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/queries/get-subscriptions.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/api/users.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/commands/register-customer.command.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/commands/register-lawyer.command.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/dtos/queries/get-customers.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/dtos/queries/get-lawyers.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/dtos/request/register-customer.request.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/dtos/request/register-lawyer.request.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/dtos/response/register-customer.response.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/dtos/response/register-lawyer-response.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/handlers/commands/register-customer.handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/handlers/commands/register-lawyer.handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/handlers/events/customer-registered.handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/handlers/events/lawyer-registered.handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/handlers/queries/get-customers.handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/handlers/queries/get-lawyers.handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/mappers/customer.mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/mappers/lawyer.mapper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/queries/get-customers.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/queries/get-lawyers.query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/services/customers-application.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/services/lawyers-application.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/validators/register-customer.validator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/application/validators/register-lawyer.validator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/entities/customer.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/entities/lawyer.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/entities/user.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/enums/user-type.enum.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/events/customer-registered.event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/events/lawyer-registered.event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/events/user-registered.event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/factories/customer.factory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/factories/lawyer.Factory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/district.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/dni.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/email.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/lawyer-id.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/lawyerLastName.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/lawyerName.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/password.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/person-name.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/phone.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/priceCustomContract.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/priceLegalAdvice.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/university.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/user-id.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/domain/value-objects/username.value.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/entities/customer.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/entities/lawyer.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/entities/user.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/district.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/dni.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/email.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/lawyer-last-name.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/lawyer-name.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/password.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/person-name.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/phone.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/price-custom-contract.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/price-legal-advice.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/university.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/user.id.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/infrastructure/persistence/typeorm/value-objects/username.typeorm.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user-profile-bounded-context/usersModule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/api/api.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api/api.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/api/envelope.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/api/envelope.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/application/app.error.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/application/app.error.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/application/app.notification.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/application/app.notification.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/api/subscriptions.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/api/subscriptions.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/commands/register-subscription.command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/commands/register-subscription.command.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/dtos/request/register-subscription-request.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/dtos/request/register-subscription-request.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/dtos/response/register-subscription-response.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/dtos/response/register-subscription-response.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/handlers/commands/register-subscription.handler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/handlers/commands/register-subscription.handler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/services/subscriptions-application.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/services/subscriptions-application.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/validators/register-subscription.validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/application/validators/register-subscription.validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/events/subscription-registered.event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/events/subscription-registered.event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/factories/subscription.factory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/factories/subscription.factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/value-objects/description.value.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/value-objects/description.value.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/value-objects/price.value.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/domain/value-objects/price.value.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/infrastructure/persistence/typeorm/entities/description.typeorm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/infrastructure/persistence/typeorm/entities/description.typeorm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/infrastructure/persistence/typeorm/entities/price.typeorm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/infrastructure/persistence/typeorm/entities/price.typeorm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/shared/api/api.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/shared/api/envelope.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/shared/application/app.error.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/shared/application/app.notification.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/suscriptions-bounded-context/suscriptions.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/suscriptions-bounded-context/subscriptionsModule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user-profile-bounded-context/README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20cRbfbz5dxquWbHq33EFqpx4iG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\WebServices\node_modules\prettier" />
+    <property name="ts.external.directory.path" value="C:\Users\mauri\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\212.5457.55\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebServices\src\user-profile-bounded-context\infrastructure\persistence\typeorm\value-objects" />
+      <recent name="D:\WebServices\src\user-profile-bounded-context" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6fb24e66-2055-4dfc-a390-14ffe266a535" name="Changes" comment="" />
+      <created>1636341986283</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636341986283</updated>
+      <workItem from="1636342048806" duration="14000" />
+      <workItem from="1636511009143" duration="1000000" />
+      <workItem from="1636512090537" duration="4599000" />
+      <workItem from="1636516751749" duration="135000" />
+      <workItem from="1636516954920" duration="8057000" />
+      <workItem from="1636754209239" duration="10641000" />
+      <workItem from="1636820893976" duration="3087000" />
+      <workItem from="1636824153207" duration="2039000" />
+      <workItem from="1636840487193" duration="8617000" />
+      <workItem from="1636849475225" duration="3809000" />
+      <workItem from="1637347744855" duration="22702000" />
+      <workItem from="1637553971763" duration="14000" />
+      <workItem from="1637650898237" duration="350000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

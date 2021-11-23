@@ -1,8 +1,8 @@
 import { Money } from "src/common/domain/value-objects/money.value";
-import { LegalConsultation } from "../entities/consultation.entity";
+import { LegalConsultation } from "../entities/legalConsultation.entity";
 
 export class LegalConsultationFactory {
-    public static createFrom(document: Document, lawyerid: number, customerid: number,coment: string, cost: Money): LegalConsultation {
+    public static createFrom(document: number, lawyerid: Document, customerid: number, coment: string, cost: Money): LegalConsultation {
       return new LegalConsultation(0, document, lawyerid, customerid, coment, cost);
     }
   

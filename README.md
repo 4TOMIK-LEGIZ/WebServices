@@ -23,6 +23,6 @@ $ npm run test:cov
 ## Environment variables
 
 ```
-MYSQL_4TOMIK_PROJECT=mysql://{user}:{password}@{host}:{port}/{database}
-MYSQL_4TOMIK_PROJECT=mysql://root:{...}@localhost:3006/4tomik
+MYSQL_TOMIK_PROJECT=mysql://{user}:{password}@{host}:{port}/{database}
+MYSQL_TOMIK_PROJECT=mysql://root:{...}@localhost:3006/tomik
 ```

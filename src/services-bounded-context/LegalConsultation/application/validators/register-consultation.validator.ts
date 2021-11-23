@@ -1,6 +1,6 @@
 import { AppNotification } from "src/common/application/app.notification";
 import { Money } from "src/common/domain/value-objects/money.value";
-import { LegalConsultation } from "../../domain/entities/consultation.entity";
+import { LegalConsultation } from "../../domain/entities/legalConsultation.entity";
 import { legalConsultationSchema } from "../../infrastructure/persistence/schemas/consultation.schema";
 import { RegisterlegalConsultationRequestDto } from "../dtos/register-consultation-request.dto";
 
