@@ -1,8 +1,8 @@
-import { legalConsultationRegisteredEvent } from "../../messaging/consultation-registered.event";
 import {EventsHandler, IEventHandler} from "@nestjs/cqrs";
+import {CustomContractRegisteredEvent} from "../../../messaging/contract-registered.event";
 
-@EventsHandler(CusustomContractRegisteredEvent)
-export class CustomContractRegisteredHandler implements IEventHandler<legalConsultationRegisteredEvent> {
+@EventsHandler(CustomContractRegisteredEvent)
+export class CustomContractRegisteredHandler implements IEventHandler<CustomContractRegisteredEvent> {
   constructor() {}
 
   handle(event: CustomContractRegisteredEvent) {

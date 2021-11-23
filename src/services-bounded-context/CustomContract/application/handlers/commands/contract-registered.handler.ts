@@ -1,14 +1,15 @@
-import { RegisterlegalConsultationCommand } from "../../messaging/register-consultation.command";
 import {CommandHandler, EventPublisher, ICommandHandler} from "@nestjs/cqrs";
 import {InjectRepository} from "@nestjs/typeorm";
-import {Repository} from "typeorm";
+import {InsertResult, Repository} from "typeorm";
 import {CustomContract} from "../../../domain/entities/customContract.entity";
 import {CustomContractFactory} from "../../../domain/factories/customContract.factory";
+import {RegisterCustomContractCommand} from "../../../messaging/register-contract.command";
+import {customContractSchema} from "../../../infrastructure/persistence/schemas/contract.schema";
 
 
 @CommandHandler(RegisterCustomContractCommand)
 export class RegistercustomContractnHandler
-  implements ICommandHandler<RegisterlegalConsultationCommand> {
+  implements ICommandHandler<RegisterCustomContractCommand> {
   constructor(
       @InjectRepository(customContractSchema)
       private customContractRepository: Repository<CustomContract>,

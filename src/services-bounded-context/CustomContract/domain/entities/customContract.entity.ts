@@ -1,7 +1,6 @@
 import { Entity } from "src/common/domain/entities/entity";
 import { Money } from "src/common/domain/value-objects/money.value";
-import { legalConsultationRegisteredEvent } from "../../messaging/consultation-registered.event";
-import {DateTime} from "../../../../common/domain/value-objects/date-time.value";
+import {CustomContractRegisteredEvent} from "../../messaging/contract-registered.event";
 
 export class CustomContract extends Entity {
     private description: string;

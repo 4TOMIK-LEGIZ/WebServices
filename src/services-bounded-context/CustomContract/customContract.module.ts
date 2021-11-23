@@ -1,10 +1,10 @@
 import {Module} from "@nestjs/common";
 import {CqrsModule, QueryHandler} from "@nestjs/cqrs";
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {LegalConsultationTypeORM} from "./infrastructure/persistence/typeorm/entities/legalConsultation.typeorm";
-import {legalConsultationController} from "./api/legalConsultation.controller";
-import {legalConsultationApplicationService} from "./application/services/consultation-application.service";
-import {RegisterlegalConsultationValidator} from "./application/validators/register-consultation.validator";
+import {CustomContractTypeorm} from "./infrastructure/persistence/typeorm/entities/customContract.typeorm";
+import {customContractController} from "./api/customContract.controller";
+import {legalConsultationApplicationService} from "./application/services/contract-application.service";
+import {RegisterlegalConsultationValidator} from "./application/validators/register-contract.validator";
 import {RegisterlegalConsultationHandler} from "./application/handlers/commands/contract-registered.handler";
 import {legalConsultationRegisteredHandler} from "./application/handlers/events/register-contract.handler";
 
@@ -14,9 +14,9 @@ export const EventHandlers = [legalConsultationRegisteredHandler];
 @Module({
     imports:[
         CqrsModule,
-        TypeOrmModule.forFeature([LegalConsultationTypeORM]),
+        TypeOrmModule.forFeature([CustomContractTypeorm]),
     ],
-    controllers: [legalConsultationController],
+    controllers: [customContractController],
     providers: [
         legalConsultationApplicationService,
         RegisterlegalConsultationValidator,
