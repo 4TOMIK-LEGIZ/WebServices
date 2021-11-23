@@ -1,27 +1,26 @@
-import {Result} from "typescript-result";
-import {AppNotification} from "../../shared/application/app.notification";
+import { Result } from "typescript-result";
+import { AppNotification } from "../../../common/application/app.notification";
 
 export class Price {
-    private value: number;
+    private readonly value: string;
 
-    private constructor(value: number) {
+    private constructor(value: string) {
         this.value = value;
     }
 
-    public getValue(): number {
+    public getValue(): string {
         return this.value;
     }
 
-    public static create(price: number): Result<AppNotification, Price> {
+    public static create(value: string): Result<AppNotification, Price> {
         let notification: AppNotification = new AppNotification();
-        let p = price.toString();
-        p = (p ?? "").trim();
-        if (p === "") {
+        value = (value ?? '').trim();
+        if (value === '') {
             notification.addError("Price is required", null);
         }
         if (notification.hasErrors()) {
             return Result.error(notification);
         }
-        return Result.ok(new Price(price));
+        return Result.ok(new Price(value));
     }
 }
