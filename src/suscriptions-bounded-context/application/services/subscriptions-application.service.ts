@@ -3,9 +3,9 @@ import { Injectable } from "@nestjs/common";
 import { RegisterSubscriptionRequestDto } from "../dtos/request/register-subscription-request.dto";
 import { Result } from "typescript-result";
 import { RegisterSubscriptionResponseDto } from "../dtos/response/register-subscription-response.dto";
-import { AppNotification } from "../../shared/application/app.notification";
 import { RegisterSubscriptionValidator } from "../validators/register-subscription.validator";
 import { RegisterSubscriptionCommand } from "../commands/register-subscription.command";
+import {AppNotification} from "../../../common/application/app.notification";
 
 @Injectable()
 export class SubscriptionsApplicationService {

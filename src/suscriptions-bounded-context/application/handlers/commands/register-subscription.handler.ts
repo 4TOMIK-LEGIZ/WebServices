@@ -4,16 +4,18 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {SubscriptionTypeORM} from "../../../infrastructure/persistence/typeorm/entities/subscription.typeorm";
 import {Repository} from "typeorm";
 import {Result} from "typescript-result";
-import {AppNotification} from "../../../shared/application/app.notification";
 import {Subscription} from "../../../domain/entities/subscription.entity";
 import {SubscriptionFactory} from "../../../domain/factories/subscription.factory";
 import {Price} from "../../../domain/value-objects/price.value";
 import {Description} from "../../../domain/value-objects/description.value";
 import {SubscriptionId} from "../../../domain/value-objects/subscription-id.value";
 import {SubscriptionMapper} from "../../mappers/subscription.mapper";
+import {AppNotification} from "../../../../common/application/app.notification";
 
 @CommandHandler(RegisterSubscriptionCommand)
-export class RegisterSubscriptionHandler implements ICommandHandler<RegisterSubscriptionCommand> {
+export class RegisterSubscriptionHandler
+    implements ICommandHandler<RegisterSubscriptionCommand>
+{
     constructor(
         @InjectRepository(SubscriptionTypeORM)
         private subscriptionRepository: Repository<SubscriptionTypeORM>,

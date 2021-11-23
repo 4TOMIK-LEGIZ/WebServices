@@ -1,8 +1,11 @@
 import {Column} from "typeorm";
 
 export class DescriptionTypeORM {
-    @Column('varchar', { name: 'description', nullable: false})
-    value: string;
+    @Column('varchar', {
+        name: 'description',
+        nullable: false
+    })
+    public value: string;
 
     private constructor(value: string) {
         this.value = value;

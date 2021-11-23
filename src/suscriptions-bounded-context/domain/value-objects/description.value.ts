@@ -1,5 +1,5 @@
 import { Result } from "typescript-result";
-import { AppNotification } from "../../shared/application/app.notification";
+import { AppNotification } from "../../../common/application/app.notification";
 
 export class Description {
     private readonly value: string;
@@ -14,8 +14,8 @@ export class Description {
 
     public static create(value: string): Result<AppNotification, Description> {
         let notification: AppNotification = new AppNotification();
-        value = (value ?? "").trim();
-        if (value === "") {
+        value = (value ?? '').trim();
+        if (value === '') {
             notification.addError('Description is required', null);
         }
         if (notification.hasErrors()) {

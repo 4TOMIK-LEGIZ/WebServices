@@ -2,10 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import {TypeOrmModule} from "@nestjs/typeorm";
-import { SuscriptionsModule } from "./suscriptions-bounded-context/suscriptions.module";
+import { SubscriptionsModule } from "./suscriptions-bounded-context/subscriptionsModule";
+import { UsersModule } from "./user-profile-bounded-context/usersModule";
 
 @Module({
-  imports: [SuscriptionsModule,TypeOrmModule.forRoot()],
+  imports: [SubscriptionsModule, UsersModule, TypeOrmModule.forRoot()],
   controllers: [AppController],
   providers: [AppService],
 })
