@@ -1,12 +1,12 @@
-import { Money } from "src/common/domain/value-objects/money.value";
-import { LegalConsultation } from "../entities/legalConsultation.entity";
+
+import { LegalConsultation } from "../entities/legal-consultation.entity";
+import {LawDocument} from "../value-objects/law-document.value";
+import {LawComment} from "../value-objects/law-comment.value";
+import {LegalConsultationId} from "../value-objects/legal-consultation-id.value";
+import {Cost} from "../value-objects/cost.value";
 
 export class LegalConsultationFactory {
-    public static createFrom(document: number, lawyerid: Document, customerid: number, coment: string, cost: Money): LegalConsultation {
-      return new LegalConsultation(0, document, lawyerid, customerid, coment, cost);
+    public static createFrom(lawDocument: LawDocument, lawComment: LawComment, cost: Cost): LegalConsultation {
+      return new LegalConsultation(LegalConsultationId.create(0), lawDocument, lawComment, cost);
     }
-  
-    public static withId(id: number, document: Document, lawyerid: number, customerid: number, coment: string, cost: Money): LegalConsultation {
-      return new LegalConsultation(id, document, lawyerid, customerid, coment, cost);
-    }
-  }
+}

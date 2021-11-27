@@ -1,25 +1,27 @@
 import {Module} from "@nestjs/common";
-import {CqrsModule, QueryHandler} from "@nestjs/cqrs";
+import {CqrsModule} from "@nestjs/cqrs";
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {CustomContractTypeorm} from "./infrastructure/persistence/typeorm/entities/customContract.typeorm";
-import {customContractController} from "./api/customContract.controller";
-import {legalConsultationApplicationService} from "./application/services/contract-application.service";
-import {RegisterlegalConsultationValidator} from "./application/validators/register-contract.validator";
-import {RegisterlegalConsultationHandler} from "./application/handlers/commands/contract-registered.handler";
-import {legalConsultationRegisteredHandler} from "./application/handlers/events/register-contract.handler";
 
-export const CommandHandlers = [RegisterlegalConsultationHandler];
-export const EventHandlers = [legalConsultationRegisteredHandler];
+import {CustomContractTypeORM} from "./infrastructure/persistence/typeorm/entities/custom-contract.typeorm";
+import {CustomContractController} from "./api/customContract.controller";
+import {RegisterCustomContractValidator} from "./application/validators/register-contract.validator";
+import {CustomContractsApplicationService} from "./application/services/custom-contracts-application.service";
+import {RegisterCustomContractHandler} from "./application/handlers/commands/contract-registered.handler";
+import {CustomContractRegisteredHandler} from "./application/handlers/events/register-contract.handler";
+
+
+export const CommandHandlers = [RegisterCustomContractHandler];
+export const EventHandlers = [CustomContractRegisteredHandler];
 
 @Module({
     imports:[
         CqrsModule,
-        TypeOrmModule.forFeature([CustomContractTypeorm]),
+        TypeOrmModule.forFeature([CustomContractTypeORM]),
     ],
-    controllers: [customContractController],
+    controllers: [CustomContractController],
     providers: [
-        legalConsultationApplicationService,
-        RegisterlegalConsultationValidator,
+        CustomContractsApplicationService,
+        RegisterCustomContractValidator,
         ...CommandHandlers,
         ...EventHandlers,
     ]

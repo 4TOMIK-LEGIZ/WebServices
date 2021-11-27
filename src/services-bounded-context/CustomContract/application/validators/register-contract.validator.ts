@@ -1,40 +1,38 @@
 import { AppNotification } from "src/common/application/app.notification";
-import { Money } from "src/common/domain/value-objects/money.value";
-import {CustomContract} from "../../domain/entities/customContract.entity";
-import {customContractSchema} from "../../infrastructure/persistence/schemas/contract.schema";
-import {
-  RegisterCustomContractRequestDto,
-} from "../dtos/request/register-contract-request.dto";
+import {RegisterCustomContractRequestDto} from "../dtos/request/register-contract-request.dto";
 import {Injectable} from "@nestjs/common";
 import {InjectRepository} from "@nestjs/typeorm";
 import {Repository} from "typeorm";
+import {CustomContractTypeORM} from "../../infrastructure/persistence/typeorm/entities/custom-contract.typeorm";
 
 
 @Injectable()
 export class RegisterCustomContractValidator {
   constructor(
-      @InjectRepository(customContractSchema)
-      private customContractRepository: Repository<CustomContract>,
+      @InjectRepository(CustomContractTypeORM)
+      private customContractRepository: Repository<CustomContractTypeORM>,
   ) { }
 
   public async validate(
-      registercustomContractRequestDto: RegisterCustomContractRequestDto,
+      registerCustomContractRequestDto: RegisterCustomContractRequestDto,
   ): Promise<AppNotification> {
-    let notification: AppNotification = new AppNotification();
-    const description: string = registercustomContractRequestDto.description.trim();
-    if (description.length <= 0) {
-      notification.addError('customContract description is required', null);
+    const notification: AppNotification = new AppNotification();
+    const lawDescription: string = registerCustomContractRequestDto.lawDescription.trim();
+    if (lawDescription.length <= 0) {
+      notification.addError('CustomContract lawDescription is required', null);
     }
-
-    const start_date: string = registercustomContractRequestDto.start_date.trim();
-    if (start_date.length <= 0) {
-      notification.addError('customContract coment is required', null);
+    const startedAt: string = registerCustomContractRequestDto.startedAt.trim();
+    if (startedAt.length <= 0) {
+      notification.addError('customContract startedAt is required', null);
     }
-    const end_date: string = registercustomContractRequestDto.end_date.trim();
-    if (end_date.length <= 0) {
-      notification.addError('customContract coment is required', null);
+    const finishedAt: string = registerCustomContractRequestDto.finishedAt.trim();
+    if (finishedAt.length <= 0) {
+      notification.addError('customContract finished is required', null);
     }
-
+    const cost: string = registerCustomContractRequestDto.cost.trim();
+    if (cost.length <= 0) {
+      notification.addError('customContract cost is required', null);
+    }
     if (notification.hasErrors()) {
       return notification;
     }

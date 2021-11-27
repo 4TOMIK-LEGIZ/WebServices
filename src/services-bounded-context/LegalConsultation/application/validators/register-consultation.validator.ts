@@ -1,38 +1,32 @@
 import { AppNotification } from "src/common/application/app.notification";
-import { Money } from "src/common/domain/value-objects/money.value";
-import { LegalConsultation } from "../../domain/entities/legalConsultation.entity";
-import { legalConsultationSchema } from "../../infrastructure/persistence/schemas/consultation.schema";
-import { RegisterlegalConsultationRequestDto } from "../dtos/register-consultation-request.dto";
+
+import {Injectable} from "@nestjs/common";
+import {InjectRepository} from "@nestjs/typeorm";
+import {LegalConsultationTypeORM} from "../../infrastructure/persistence/typeorm/entities/legal-consultation.typeorm";
+import {Repository} from "typeorm";
+import {RegisterLegalConsultationRequestDto} from "../dtos/register-consultation-request.dto";
 
 
 @Injectable()
-export class RegisterlegalConsultationValidator {
+export class RegisterLegalConsultationValidator {
   constructor(
-    @InjectRepository(legalConsultationSchema)
-    private legalConsultationRepository: Repository<LegalConsultation>,
+    @InjectRepository(LegalConsultationTypeORM)
+    private legalConsultationRepository: Repository<LegalConsultationTypeORM>,
   ) { }
 
   public async validate(
-    registerlegalConsultationRequestDto: RegisterlegalConsultationRequestDto,
+    registerLegalConsultationRequestDto: RegisterLegalConsultationRequestDto,
   ): Promise<AppNotification> {
     let notification: AppNotification = new AppNotification();
-    const document: Document = registerlegalConsultationRequestDto.document.trim();
-    if (document.length <= 0) {
+    const lawDocument: string = registerLegalConsultationRequestDto.lawDocument.trim();
+    if (lawDocument.length <= 0) {
       notification.addError('legalConsultation document is required', null);
     }
-    const lawyerid: number = registerlegalConsultationRequestDto.lawyerid.trim();
-    if (lawyerid.length <= 0) {
-      notification.addError('legalConsultation lawyerid is required', null);
+    const lawComment: string = registerLegalConsultationRequestDto.lawComment.trim();
+    if (lawComment.length <= 0) {
+      notification.addError('legalConsultation lawComment is required', null);
     }
-    const customerid: number = registerlegalConsultationRequestDto.customerid.trim();
-    if (customerid.length <= 0) {
-      notification.addError('legalConsultation customerid is required', null);
-    }
-    const coment: string = registerlegalConsultationRequestDto.coment.trim();
-    if (coment.length <= 0) {
-      notification.addError('legalConsultation coment is required', null);
-    }
-    const cost: Money = registerlegalConsultationRequestDto.cost.trim();
+    const cost: string = registerLegalConsultationRequestDto.cost.trim();
     if (cost.length <= 0) {
       notification.addError('legalConsultation cost is required', null);
     }

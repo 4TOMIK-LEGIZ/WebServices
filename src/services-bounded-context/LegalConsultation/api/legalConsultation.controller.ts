@@ -1,33 +1,33 @@
 import { ApiController } from "src/common/api/api.controller";
 import { AppNotification } from "src/common/application/app.notification";
-import { RegisterlegalConsultationRequestDto } from "../application/dtos/register-consultation-request.dto";
-import { RegisterlegalConsultationResponseDto } from "../application/dtos/register-consultation-response.dto";
 import {Body, Controller, Post, Res} from "@nestjs/common";
 import {Result} from "typescript-result";
-import {legalConsultationApplicationService} from "../application/services/consultation-application.service";
+import {RegisterLegalConsultationRequestDto} from "../application/dtos/register-consultation-request.dto";
+import {RegisterLegalConsultationResponseDto} from "../application/dtos/register-consultation-response.dto";
+import {LegalConsultationsApplicationService} from "../application/services/consultation-application.service";
 
 
-@Controller('legalConsultation')
+@Controller('consultation')
 export class legalConsultationController {
   constructor(
-    private readonly legalConsultationApplicationService: legalConsultationApplicationService,
+    private readonly legalConsultationsApplicationService: LegalConsultationsApplicationService,
   ) {}
 
   @Post()
   async register(
-    @Body() registerlegalConsultationRequestDto: RegisterlegalConsultationRequestDto,
+    @Body() registerLegalConsultationRequestDto: RegisterLegalConsultationRequestDto,
     @Res({ passthrough: true }) response
   ): Promise<object> {
     try {
-      const result: Result<AppNotification, RegisterlegalConsultationResponseDto>
-          = await this.legalConsultationApplicationService.register(registerlegalConsultationRequestDto);
+      const result: Result<AppNotification, RegisterLegalConsultationResponseDto>
+          = await this.legalConsultationsApplicationService.register(
+              registerLegalConsultationRequestDto);
       if (result.isSuccess()) {
           return ApiController.created(response, result.value);
       }
       return ApiController.error(response, result.error.getErrors());
     } catch (error) {
-      console.log(error);
-      return ApiController.serverError(response);
+      return ApiController.serverError(response, error);
     }
   }
 }

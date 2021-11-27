@@ -1,15 +1,15 @@
 import {Module} from "@nestjs/common";
-import {CqrsModule, QueryHandler} from "@nestjs/cqrs";
+import {CqrsModule} from "@nestjs/cqrs";
 import {TypeOrmModule} from "@nestjs/typeorm";
-import {LegalConsultationTypeORM} from "./infrastructure/persistence/typeorm/entities/legalConsultation.typeorm";
 import {legalConsultationController} from "./api/legalConsultation.controller";
-import {legalConsultationApplicationService} from "./application/services/consultation-application.service";
-import {RegisterlegalConsultationValidator} from "./application/validators/register-consultation.validator";
-import {RegisterlegalConsultationHandler} from "./application/handlers/consultation-registered.handler";
-import {legalConsultationRegisteredHandler} from "./application/handlers/register-consultation.handler";
+import {RegisterLegalConsultationHandler} from "./application/handlers/commands/register-consultation.handler";
+import {LegalConsultationRegisteredHandler} from "./application/handlers/events/consultation-registered.handler";
+import {LegalConsultationTypeORM} from "./infrastructure/persistence/typeorm/entities/legal-consultation.typeorm";
+import {LegalConsultationsApplicationService} from "./application/services/consultation-application.service";
+import {RegisterLegalConsultationValidator} from "./application/validators/register-consultation.validator";
 
-export const CommandHandlers = [RegisterlegalConsultationHandler];
-export const EventHandlers = [legalConsultationRegisteredHandler];
+export const CommandHandlers = [RegisterLegalConsultationHandler];
+export const EventHandlers = [LegalConsultationRegisteredHandler];
 
 @Module({
     imports:[
@@ -18,8 +18,8 @@ export const EventHandlers = [legalConsultationRegisteredHandler];
     ],
     controllers: [legalConsultationController],
     providers: [
-        legalConsultationApplicationService,
-        RegisterlegalConsultationValidator,
+        LegalConsultationsApplicationService,
+        RegisterLegalConsultationValidator,
         ...CommandHandlers,
         ...EventHandlers,
     ]

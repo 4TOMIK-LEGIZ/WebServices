@@ -1,16 +1,18 @@
 import { ApiController } from "src/common/api/api.controller";
-import { AppNotification } from "src/common/application/app.notification";
-import {Body, Controller, Post, Res} from "@nestjs/common";
+import { Controller, Post, Body, Res } from '@nestjs/common';
 import {Result} from "typescript-result";
+import { QueryBus } from '@nestjs/cqrs';
 import {RegisterCustomContractRequestDto} from "../application/dtos/request/register-contract-request.dto";
 import {RegisterCustomContractResponseDto} from "../application/dtos/response/register-contract-response.dto";
-import {CustomContractApplicationService} from "../application/services/contract-application.service";
+import {AppNotification} from "../../../common/application/app.notification";
+import {CustomContractsApplicationService} from "../application/services/custom-contracts-application.service";
 
 
-@Controller('customContract')
+@Controller('contract')
 export class CustomContractController {
   constructor(
-    private readonly customContractApplicationService: CustomContractApplicationService,
+    private readonly customContractApplicationService: CustomContractsApplicationService,
+    private readonly queryBus: QueryBus
   ) {}
 
   @Post()
@@ -19,15 +21,15 @@ export class CustomContractController {
     @Res({ passthrough: true }) response
   ): Promise<object> {
     try {
-      const result: Result<AppNotification, RegisterCustomContractResponseDto>
-          = await this.customContractApplicationService.register(registerCustomContractRequestDto);
+      const result: Result<AppNotification, RegisterCustomContractResponseDto> =
+          await this.customContractApplicationService.register(
+              registerCustomContractRequestDto);
       if (result.isSuccess()) {
           return ApiController.created(response, result.value);
       }
       return ApiController.error(response, result.error.getErrors());
     } catch (error) {
-      console.log(error);
-      return ApiController.serverError(response);
+      return ApiController.serverError(response, error);
     }
   }
 }

@@ -1,45 +1,43 @@
 import { AppNotification } from "src/common/application/app.notification";
-import { RegisterlegalConsultationCommand } from "../../messaging/register-consultation.command";
-import { RegisterlegalConsultationRequestDto } from "../dtos/register-consultation-request.dto";
-import { RegisterlegalConsultationResponseDto } from "../dtos/register-consultation-response.dto";
-import { RegisterlegalConsultationValidator } from "../validators/register-consultation.validator";
 import {Injectable} from "@nestjs/common";
 import {CommandBus} from "@nestjs/cqrs";
 import {Result} from "typescript-result";
+import {RegisterLegalConsultationValidator} from "../validators/register-consultation.validator";
+import {RegisterLegalConsultationRequestDto} from "../dtos/register-consultation-request.dto";
+import {RegisterLegalConsultationResponseDto} from "../dtos/register-consultation-response.dto";
+import {RegisterLegalConsultationCommand} from "../commands/register-legal-consultation.command";
 
 
 @Injectable()
-export class legalConsultationApplicationService {
+export class LegalConsultationsApplicationService {
   constructor(
     private commandBus: CommandBus,
-    private registerlegalConsultationValidator: RegisterlegalConsultationValidator,
+    private registerLegalConsultationValidator: RegisterLegalConsultationValidator,
   ) {}
 
   async register(
-    registerlegalConsultationRequestDto: RegisterlegalConsultationRequestDto,
-  ): Promise<Result<AppNotification, RegisterlegalConsultationRequestDto>> {
-    const notification: AppNotification = await this.registerlegalConsultationValidator.validate(
-        registerlegalConsultationRequestDto,
+    registerLegalConsultationRequestDto: RegisterLegalConsultationRequestDto,
+  ): Promise<Result<AppNotification, RegisterLegalConsultationResponseDto>> {
+    const notification: AppNotification =
+        await this.registerLegalConsultationValidator.validate(
+        registerLegalConsultationRequestDto,
     );
     if (notification.hasErrors()) {
       return Result.error(notification);
     }
-    const registerlegalConsultationCommand: RegisterlegalConsultationCommand = new RegisterlegalConsultationCommand(
-      registerlegalConsultationRequestDto.document,
-      registerlegalConsultationRequestDto.lawyerid,
-      registerlegalConsultationRequestDto.customerid,
-      registerlegalConsultationRequestDto.coment,
-      registerlegalConsultationRequestDto.cost,
+    const registerLegalConsultationCommand: RegisterLegalConsultationCommand = new RegisterLegalConsultationCommand(
+      registerLegalConsultationRequestDto.lawDocument,
+      registerLegalConsultationRequestDto.lawComment,
+      registerLegalConsultationRequestDto.cost,
     );
-    const legalConsultationId = await this.commandBus.execute(registerlegalConsultationCommand);
-    const registerlegalConsultationResponseDto: RegisterlegalConsultationResponseDto = new RegisterlegalConsultationResponseDto(
+    const legalConsultationId = await this.commandBus.execute(registerLegalConsultationCommand);
+    const registerLegalConsultationResponseDto: RegisterLegalConsultationResponseDto =
+        new RegisterLegalConsultationResponseDto(
       legalConsultationId,
-      registerlegalConsultationRequestDto.document,
-      registerlegalConsultationRequestDto.lawyerid,
-      registerlegalConsultationRequestDto.customerid,
-      registerlegalConsultationRequestDto.coment,
-      registerlegalConsultationRequestDto.cost,
+      registerLegalConsultationRequestDto.lawDocument,
+      registerLegalConsultationRequestDto.lawComment,
+      registerLegalConsultationRequestDto.cost,
     );
-    return Result.ok(registerlegalConsultationResponseDto);
+    return Result.ok(registerLegalConsultationResponseDto);
   }
 }

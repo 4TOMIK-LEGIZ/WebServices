@@ -1,14 +1,17 @@
 import {Column} from "typeorm";
 
 export class CostTypeORM {
-    @Column('varchar', {name: 'cost',length: 50, nullable:false})
-    public cost: string;
+    @Column('varchar', {
+        name: 'cost',
+        nullable: false
+    })
+    public value: string;
 
-    private constructor(cost: string) {
-        this.cost=cost;
+    private constructor(value: string) {
+        this.value = value;
     }
 
-    public static from(cost:string):CostTypeORM{
-        return new CostTypeORM(cost);
+    public static from(value: string): CostTypeORM {
+        return new CostTypeORM(value);
     }
 }

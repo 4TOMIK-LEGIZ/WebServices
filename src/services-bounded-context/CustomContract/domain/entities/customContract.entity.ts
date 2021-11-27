@@ -1,78 +1,60 @@
-import { Entity } from "src/common/domain/entities/entity";
-import { Money } from "src/common/domain/value-objects/money.value";
-import {CustomContractRegisteredEvent} from "../../messaging/contract-registered.event";
+import {AggregateRoot} from "@nestjs/cqrs";
+import {CustomContractId} from "../value-objects/custom-contract-id.value";
+import {LawDescription} from "../value-objects/law-description.value";
+import {StartedAt} from "../value-objects/started-at.value";
+import {FinishedAt} from "../value-objects/finished-at.value";
+import {Cost} from "../value-objects/cost.value";
+import {CustomContractRegisteredEvent} from "../events/custom-contract-registered.event";
 
-export class CustomContract extends Entity {
-    private description: string;
-    private lawyerid: number;
-    private customerid: number;
-    private start_date: string;
-    private end_date: string;
-    private cost: Money;
+export class CustomContract extends AggregateRoot {
+    private id: CustomContractId;
+    private lawDescription: LawDescription;
+    private startedAt: StartedAt;
+    private finishedAt: FinishedAt;
+    private cost: Cost;
   
-    public constructor(id: number, description: string,lawyerid: number, customerid: number, start_date: string, end_date,cost: Money) {
-      super(id);
-      this.description = description;
-      this.lawyerid = lawyerid;
-      this.customerid = customerid;
-      this.start_date = start_date;
-      this.end_date=end_date;
+    public constructor(id: CustomContractId, lawDescription: LawDescription, startedAt: StartedAt, finishedAt: FinishedAt ,cost: Cost) {
+      super();
+      this.id = id;
+      this.lawDescription = lawDescription;
+      this.startedAt = startedAt;
+      this.finishedAt = finishedAt;
       this.cost = cost;
     }
   
     public register() {
-      const event = new CustomContractRegisteredEvent (this.id, this.description,this.lawyerid, this.customerid, this.start_date,this.end_date,this.cost );
+      const event = new CustomContractRegisteredEvent (
+          this.id.getValue(),
+          this.lawDescription.getValue(),
+          this.startedAt.getValue(),
+          this.finishedAt.getValue(),
+          this.cost.getValue()
+      );
       this.apply(event);
     }
 
-    
-    public getdDescription(): string {
-      return this.description;
-    }
-  
-    public getlawyerid(): number {
-      return this.lawyerid;
-    }
-  
-    public getcustomerid(): number {
-      return this.customerid;
+    public getId(): CustomContractId {
+        return this.id;
     }
 
-    public getstartdate():string {
-      return this.start_date;
+    public getLawDescription(): LawDescription {
+        return this.lawDescription;
     }
 
-    public getenddate():string {
-        return this.end_date;
-    }
-    
-    public getcost():Money {
-      return this.cost;
-    }    
-      
-    public changedescription(description: string): void {
-      this.description = description;
-    }
-  
-    public changelawyerid(lawyerid: number): void {
-      this.lawyerid = lawyerid;
-    }
-  
-    public changecustomerid(customerid: number): void {
-      this.customerid = customerid;
+    public getStartedAt(): StartedAt {
+        return this.startedAt;
     }
 
-    public changecstartdate(coment: string) {
-      this.start_date = coment;
+    public getFinishedAt(): FinishedAt {
+        return this.finishedAt;
     }
 
-    public changecenddate(coment: string) {
-        this.end_date = coment;
+    public getCost(): Cost {
+        return this.cost;
     }
 
-    public changecost(cost: Money){
-      this.cost = cost;
+    public changeId(id: CustomContractId) {
+        this.id = id;
     }
-
 
   }
